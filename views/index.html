@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Website}}</title>
+</head>
+<body>
+  <h2>1、绑定基本类型</h2>
+
+  <p>{{.title}}</p>
+  <p>{{.num}}</p>
+  <p>{{.falg}}</p>
+  <br>
+  <h2>2、模板绑定结构体数据</h2>
+  <p>{{.article.Title}}</p>
+  <p>{{.article.Content}}</p>
+  <br>
+
+  <h2>3、定义变量</h2>
+
+  {{$title := .title}}
+
+  {{$title}}
+
+  <h2>4、range 切片</h2>
+
+  <ul>
+    {{range $key, $val := .sliceList}}
+      <li>{{$key}}---{{$val}}</li>
+    {{end}}
+  </ul>
+
+
+  <h2>5、range map</h2>
+
+  <ul>
+    {{range $key, $val := .userinfo}}
+      <li>{{$key}}---{{$val}}</li>
+    {{end}}
+  </ul>
+  
+</body>
+</html>
