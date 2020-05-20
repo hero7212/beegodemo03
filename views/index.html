@@ -40,5 +40,90 @@
     {{end}}
   </ul>
   
+  <h2>6、range 结构体类型的切片</h2>
+
+  <ul>
+    {{range $key, $val := .articleList}}
+      <li>{{$key}}---{{$val.Title}}---{{$val.Content}}</li>
+    {{end}}
+  </ul>
+
+    
+  <h2>7、range 结构体类型的切片，另一种定义方法</h2>
+
+  <ul>
+    {{range $key, $val := .cmsList}}
+      <li>{{$key}}---{{$val.Title}}</li>
+    {{end}}
+  </ul>
+      
+  <h2>
+    8、判断
+  </h2>
+
+  {{if .isLogin}}
+    <p>isLogin是true</p>
+  {{end}}
+
+  {{if .isHome}}
+    <p>isHome是true</p>
+  {{else}}
+    <p>isHome是false</p>
+  {{end}}
+
+  {{if .isHome}}
+    <p>isHome是true</p>
+  {{else if .isAbout}}
+    <p>isAbout是true</p>
+  {{end}}
+
+  {{if .isHome}}
+    <p>isHome是true</p>
+  {{else}}
+    {{if .isAbout}}
+    <p>isAbout是true</p>
+    {{end}}
+  {{end}}
+
+  <h2>9、 大于、小于、等于</h2>
+
+  {{if gt .n1 .n2}}
+  <p>n1 > n2</p>
+  {{end}}
+  
+  {{if eq .n1 .n2}}
+  <p>n1 == n2</p>
+  {{else}}
+  <p>n1 != n2</p>
+  {{end}}
+
+    
+  {{if ne .n1 .n2}}
+  <p>n1 != n2 ----</p>
+  {{else}}
+  <p>n1 == n2 ----</p>
+  {{end}}
+
+  <h2>10、自定义代码块</h2>
+
+  {{define "aaa"}}
+    <div>我是自定义</div>
+    <p>111</p>
+    <p>222</p>
+  {{end}}
+
+  <div>
+    {{template "aaa" .}}
+  </div>
+  <hr>
+  <div>
+    {{template "aaa" .}}
+  </div>
+
+  <h2>11、外部自定义模板</h2>
+
+
+  {{template "/public/footer.html" .}}
+
 </body>
 </html>
